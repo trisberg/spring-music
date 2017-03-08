@@ -73,10 +73,15 @@ public class InfoController {
         String cacheNegPolicy = "sun.net.InetAddressCachePolicy#negativeCachePolicy: " + InetAddressCachePolicy.getNegative();
         return new ApplicationInfo(springEnvironment.getActiveProfiles(), getServiceNames(),
                 new String[] {
-                        "Config:javax.sql.Datasource#class: " + dataSource.getClass().getName(),
-                        "Config:javax.sql.Datasource#url: " + dataSource.getUrl(),
                         "Config:spring.datasource.url: " + jdbcUrl,
                         "Config:mysql.host: " + jdbcHost + " : " + jdbcIp,
+                        "Pool:javax.sql.Datasource#class: " + dataSource.getClass().getName(),
+                        "Pool:javax.sql.Datasource#url: " + dataSource.getUrl(),
+                        "Pool:active: " + dataSource.getPool().getActive(),
+                        "Pool:idle: " + dataSource.getPool().getIdle(),
+                        "Pool:size: " + dataSource.getPool().getSize(),
+                        "Pool:testOnBorrow: " + dataSource.getPool().getPoolProperties().isTestOnBorrow(),
+                        "Pool:removeAbandoned: " + dataSource.getPool().getPoolProperties().isRemoveAbandoned(),
                         "System:sun.net.inetaddr.ttl: " + sunCacheTtl,
                         "System:sun.net.inetaddr.negative.ttl: " + sunCacheNegTtl,
                         "Security:networkaddress.cache.ttl: " + dnsCacheTtl,
