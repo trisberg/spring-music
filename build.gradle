@@ -47,7 +47,7 @@ dependencies {
 
     // JPA Persistence
     runtime "com.h2database:h2"
-    runtime "mysql:mysql-connector-java"
+    runtime "org.mariadb.jdbc:mariadb-java-client"
     runtime "org.postgresql:postgresql"
     runtime "com.microsoft.sqlserver:mssql-jdbc"
 
